@@ -43,13 +43,39 @@
         <div class="vignette"></div>
     </div>
 
-    <!-- Diving depth gauge -->
+    <!-- Depth-dive sea life: a new creature drifts in every 20% of depth -->
+    <div class="depth-life" aria-hidden="true">
+        <div class="sea-zone" data-zone="0">
+            <svg class="creature creature--turtle" viewBox="0 0 200 168"><use href="#sym-turtle"/></svg>
+        </div>
+        <div class="sea-zone" data-zone="1">
+            <svg class="creature creature--ray" viewBox="0 0 200 190"><use href="#sym-ray"/></svg>
+        </div>
+        <div class="sea-zone" data-zone="2">
+            <svg class="creature creature--shark" viewBox="0 0 200 100"><use href="#sym-shark"/></svg>
+            <svg class="creature creature--subhunt" viewBox="-6 -12 210 134"><use href="#sym-sub"/></svg>
+        </div>
+        <div class="sea-zone" data-zone="3">
+            <svg class="creature creature--jelly" viewBox="0 0 110 156"><use href="#sym-jelly"/></svg>
+            <svg class="creature creature--jelly2" viewBox="0 0 110 156"><use href="#sym-jelly"/></svg>
+        </div>
+        <div class="sea-zone" data-zone="4">
+            <svg class="creature creature--angler" viewBox="0 -8 170 124"><use href="#sym-angler"/></svg>
+        </div>
+    </div>
+
+    <!-- Diving depth gauge (marker morphs: snorkel → scuba → submarine) -->
     <aside class="depth-gauge" aria-hidden="true">
         <div class="depth-gauge__track">
             <span class="depth-gauge__fill"></span>
-            <span class="depth-gauge__marker">🐬</span>
+            <span class="depth-gauge__marker" id="depthMarker">
+                <svg class="gear is-on" data-gear="snorkel" viewBox="-4 -4 200 140"><use href="#sym-snorkel"/></svg>
+                <svg class="gear" data-gear="scuba" viewBox="-4 0 200 178"><use href="#sym-scuba"/></svg>
+                <svg class="gear" data-gear="sub" viewBox="-6 -12 210 134"><use href="#sym-sub"/></svg>
+            </span>
         </div>
         <span class="depth-gauge__value">0m</span>
+        <span class="depth-gauge__zone" id="depthZone">Surface</span>
     </aside>
 
     <!-- Navigation -->
@@ -430,6 +456,96 @@
                 <stop offset="45%" stop-color="#38e1e8" />
                 <stop offset="100%" stop-color="#a855f7" />
             </linearGradient>
+            <linearGradient id="grad-sea" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#7df0e0" />
+                <stop offset="100%" stop-color="#46b6e0" />
+            </linearGradient>
+            <linearGradient id="grad-sub" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffe27a" />
+                <stop offset="100%" stop-color="#f4b81f" />
+            </linearGradient>
+            <radialGradient id="grad-glass" cx="40%" cy="35%" r="70%">
+                <stop offset="0%" stop-color="#bdf5ff" />
+                <stop offset="100%" stop-color="#3aa7c9" />
+            </radialGradient>
+
+            <!-- ===== Depth-dive creatures (original silhouettes) ===== -->
+            <symbol id="sym-turtle" viewBox="0 0 200 168">
+                <g fill="url(#grad-sea)">
+                    <ellipse cx="100" cy="92" rx="52" ry="44"/>
+                    <ellipse cx="100" cy="34" rx="15" ry="18"/>
+                    <path d="M64 68 C 36 44 14 44 10 60 C 8 74 36 82 56 78 Z"/>
+                    <path d="M136 68 C 164 44 186 44 190 60 C 192 74 164 82 144 78 Z"/>
+                    <path d="M70 124 C 50 138 40 150 50 154 C 60 156 76 140 80 128 Z"/>
+                    <path d="M130 124 C 150 138 160 150 150 154 C 140 156 124 140 120 128 Z"/>
+                </g>
+            </symbol>
+            <symbol id="sym-ray" viewBox="0 0 200 190">
+                <g fill="url(#grad-sea)">
+                    <path d="M100 28 C 130 30 170 44 192 64 C 165 70 130 80 104 98 C 70 80 35 70 8 64 C 30 44 70 30 100 28 Z"/>
+                    <path d="M92 30 L 88 16 L 97 28 Z"/>
+                    <path d="M108 30 L 112 16 L 103 28 Z"/>
+                    <path d="M98 96 L 102 96 L 101 178 L 99 178 Z"/>
+                </g>
+            </symbol>
+            <symbol id="sym-shark" viewBox="0 0 200 100">
+                <path fill="url(#grad-sea)" d="M196 60 C 178 48 150 44 122 46 C 116 28 110 16 100 14 C 104 30 100 40 92 46 C 70 50 46 50 28 48 C 20 36 10 24 4 18 C 8 32 12 42 16 52 C 12 56 8 64 4 74 C 14 66 22 60 30 54 C 50 60 68 62 90 62 C 100 76 112 86 124 92 C 120 78 116 68 112 62 C 138 62 168 62 196 60 Z"/>
+                <circle cx="178" cy="54" r="3.4" fill="#0a1026"/>
+            </symbol>
+            <symbol id="sym-jelly" viewBox="0 0 110 156">
+                <path fill="url(#grad-sea)" d="M24 72 C 24 34 100 34 100 72 C 92 66 90 80 82 72 C 76 82 70 68 62 76 C 56 66 50 80 42 72 C 34 80 30 66 24 72 Z"/>
+                <g fill="none" stroke="url(#grad-sea)" stroke-width="4" stroke-linecap="round">
+                    <path d="M36 76 C 30 98 40 120 32 148"/>
+                    <path d="M52 78 C 48 102 58 122 50 150"/>
+                    <path d="M68 78 C 64 102 74 122 66 150"/>
+                    <path d="M84 76 C 80 98 90 118 82 146"/>
+                </g>
+            </symbol>
+            <symbol id="sym-angler" viewBox="0 -8 170 124">
+                <path fill="url(#grad-sea)" d="M40 84 C 24 72 14 64 8 58 C 14 74 14 96 8 110 C 18 100 30 92 42 88 Z"/>
+                <path fill="url(#grad-sea)" d="M72 42 L 66 22 L 86 40 Z"/>
+                <path fill="url(#grad-sea)" d="M30 86 C 24 56 52 40 88 42 C 112 43 130 52 140 66 L 154 60 L 140 76 L 154 84 L 138 88 C 128 100 66 102 40 96 C 34 94 30 90 30 86 Z"/>
+                <g fill="#0a1026">
+                    <path d="M141 70 L 145 76 L 137 75 Z"/>
+                    <path d="M146 78 L 142 73 L 150 74 Z"/>
+                </g>
+                <circle cx="112" cy="62" r="5" fill="#0a1026"/>
+                <path d="M80 42 C 72 22 96 8 124 12" fill="none" stroke="url(#grad-sea)" stroke-width="3"/>
+                <circle cx="126" cy="12" r="16" fill="#ffe27a" opacity="0.3"/>
+                <circle cx="126" cy="12" r="9" fill="#ffe27a"/>
+            </symbol>
+
+            <!-- ===== Dive gear (depth-gauge marker) ===== -->
+            <symbol id="sym-snorkel" viewBox="-4 -4 200 140">
+                <path d="M150 96 C 176 96 184 78 184 52 C 184 24 182 12 182 4" fill="none" stroke="#f4b81f" stroke-width="16" stroke-linecap="round"/>
+                <rect x="174" y="0" width="18" height="16" rx="3" fill="#f4b81f"/>
+                <rect x="20" y="34" width="140" height="80" rx="34" fill="#f4b81f"/>
+                <rect x="36" y="48" width="108" height="52" rx="24" fill="url(#grad-glass)"/>
+                <path d="M70 112 C 74 132 106 132 110 112 Z" fill="#f4b81f"/>
+                <path d="M20 66 C 4 60 -2 70 0 82" fill="none" stroke="#caa018" stroke-width="8" stroke-linecap="round"/>
+            </symbol>
+            <symbol id="sym-scuba" viewBox="-4 0 200 178">
+                <rect x="20" y="34" width="140" height="80" rx="34" fill="#f4b81f"/>
+                <rect x="36" y="48" width="108" height="52" rx="24" fill="url(#grad-glass)"/>
+                <path d="M70 112 C 74 132 106 132 110 112 Z" fill="#f4b81f"/>
+                <path d="M20 66 C 4 60 -2 70 0 82" fill="none" stroke="#caa018" stroke-width="8" stroke-linecap="round"/>
+                <path d="M150 96 C 178 104 188 124 176 150" fill="none" stroke="#222a44" stroke-width="12" stroke-linecap="round"/>
+                <rect x="156" y="146" width="34" height="26" rx="7" fill="#2b3357"/>
+                <circle cx="173" cy="159" r="6" fill="#566089"/>
+            </symbol>
+            <symbol id="sym-sub" viewBox="-6 -12 210 134">
+                <line x1="18" y1="70" x2="2" y2="70" stroke="#caa018" stroke-width="6"/>
+                <ellipse cx="2" cy="70" rx="6" ry="18" fill="#caa018"/>
+                <path d="M86 36 L 92 12 L 120 12 L 126 36 Z" fill="url(#grad-sub)"/>
+                <line x1="106" y1="12" x2="106" y2="-2" stroke="#caa018" stroke-width="5"/>
+                <circle cx="106" cy="-4" r="5" fill="#caa018"/>
+                <path d="M24 70 C 24 50 60 38 116 38 C 158 38 186 48 196 64 C 198 67 198 73 196 76 C 186 92 158 102 116 102 C 60 102 24 90 24 70 Z" fill="url(#grad-sub)"/>
+                <path d="M70 100 C 74 116 96 116 100 100 Z" fill="#caa018"/>
+                <circle cx="78" cy="70" r="11" fill="url(#grad-glass)"/>
+                <circle cx="116" cy="70" r="11" fill="url(#grad-glass)"/>
+                <circle cx="154" cy="70" r="9" fill="url(#grad-glass)"/>
+            </symbol>
+
             <!-- Stylized dolphin silhouette (facing right), viewBox 0 0 300 200 -->
             <path id="dolphin-shape" d="M288 70
                 C 280 78 270 80 262 82

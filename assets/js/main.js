@@ -64,6 +64,11 @@
     const fill   = $(".depth-gauge__fill");
     const marker = $(".depth-gauge__marker");
     const value  = $(".depth-gauge__value");
+    const zoneLabel = $("#depthZone");
+    const gears  = $$(".depth-gauge__marker .gear");
+    const seaZones = $$(".sea-zone");
+    const ZONE_NAMES = ["Sea turtle", "Manta ray", "Tiger shark", "Jellyfish", "Anglerfish"];
+    let lastGear = "snorkel", lastZone = -1;
     const MAX_DEPTH = 1000; // metres, for flavour
 
     let ticking = false;
@@ -78,6 +83,21 @@
         if (fill)   fill.style.height = (pct * 100) + "%";
         if (marker) marker.style.top = (pct * 100) + "%";
         if (value)  value.textContent = Math.round(pct * MAX_DEPTH) + "m";
+
+        // dive-gear morph: snorkel → scuba → submarine
+        const gear = pct < 0.30 ? "snorkel" : pct < 0.60 ? "scuba" : "sub";
+        if (gear !== lastGear) {
+            gears.forEach(g => g.classList.toggle("is-on", g.dataset.gear === gear));
+            lastGear = gear;
+        }
+
+        // sea-life zone: a new creature drifts in every 20% of depth
+        const zone = Math.min(4, Math.floor(pct / 0.2));
+        if (zone !== lastZone) {
+            seaZones.forEach(z => z.classList.toggle("active", Number(z.dataset.zone) === zone));
+            if (zoneLabel) zoneLabel.textContent = ZONE_NAMES[zone];
+            lastZone = zone;
+        }
 
         // scroll spy
         const mid = y + window.innerHeight * 0.35;

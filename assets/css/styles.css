@@ -205,14 +205,80 @@ img, svg { display: block; max-width: 100%; }
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translate(-50%, -50%) scaleX(-1);
-    font-size: 1.1rem;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
     transition: top 0.15s linear;
 }
+.depth-gauge__marker .gear {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 42px;
+    height: auto;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.6));
+}
+.depth-gauge__marker .gear.is-on { opacity: 1; }
 .depth-gauge__value {
     font-variant-numeric: tabular-nums;
     color: var(--cyan);
+}
+.depth-gauge__zone {
+    max-width: 92px;
+    text-align: center;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    line-height: 1.3;
+}
+
+/* =========================================================
+   Depth-dive sea life (a creature per 20% of depth)
+   ========================================================= */
+.depth-life {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+.sea-zone {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.4s var(--ease-soft);
+}
+.sea-zone.active { opacity: 1; }
+
+.creature {
+    position: absolute;
+    height: auto;
+    opacity: 0.22;
+    will-change: transform;
+}
+.creature--turtle  { width: 92px;  top: 15%; left: -14%; animation: drift-r 64s linear infinite; }
+.creature--ray     { width: 168px; top: 22%; left: -16%; animation: drift-r 78s linear infinite; }
+.creature--shark   { width: 232px; top: 55%; left: -20%; animation: drift-r 48s linear infinite; }
+.creature--subhunt { width: 150px; top: 63%; left: -42%; animation: drift-r 48s linear infinite; opacity: 0.5; }
+.creature--jelly   { width: 80px;  top: 28%; left: 16%;  animation: bob-y 9s ease-in-out infinite; }
+.creature--jelly2  { width: 58px;  top: 50%; right: 18%; animation: bob-y 11s ease-in-out infinite; animation-delay: -3s; }
+.creature--angler  { width: 150px; top: 60%; right: -16%; animation: drift-l 56s linear infinite; }
+
+@keyframes drift-r {
+    from { transform: translateX(0); }
+    to   { transform: translateX(135vw); }
+}
+@keyframes drift-l {
+    from { transform: translateX(0) scaleX(-1); }
+    to   { transform: translateX(-135vw) scaleX(-1); }
+}
+@keyframes bob-y {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(26px); }
 }
 
 /* =========================================================
@@ -952,6 +1018,13 @@ img, svg { display: block; max-width: 100%; }
     .reveal { opacity: 1; transform: none; }
     .dolphin { display: none; }
     .godrays { animation: none; }
+    /* Park drifting creatures on-screen so they're still visible without motion */
+    .creature { animation: none !important; }
+    .creature--turtle  { left: 8%;  transform: none; }
+    .creature--ray     { left: 10%; transform: none; }
+    .creature--shark   { left: 6%;  transform: none; }
+    .creature--subhunt { left: 34%; transform: none; }
+    .creature--angler  { right: 8%; transform: scaleX(-1); }
 }
 
 /* =========================================================
