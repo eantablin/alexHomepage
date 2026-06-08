@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Alexandra Blair Antablin">
+    <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0.6" y2="1">
+            <stop offset="0%" stop-color="#1d1457"/>
+            <stop offset="55%" stop-color="#0a0e27"/>
+            <stop offset="100%" stop-color="#050816"/>
+        </linearGradient>
+        <radialGradient id="glow" cx="22%" cy="0%" r="80%">
+            <stop offset="0%" stop-color="#5b3cc4" stop-opacity="0.55"/>
+            <stop offset="60%" stop-color="#5b3cc4" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="txt" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#aef0ff"/>
+            <stop offset="50%" stop-color="#6db9ff"/>
+            <stop offset="100%" stop-color="#c084fc"/>
+        </linearGradient>
+        <linearGradient id="dol" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#5eead4"/>
+            <stop offset="50%" stop-color="#38e1e8"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+        </linearGradient>
+    </defs>
+
+    <rect width="1200" height="630" fill="url(#sky)"/>
+    <rect width="1200" height="630" fill="url(#glow)"/>
+
+    <!-- light rays -->
+    <g opacity="0.18" fill="#7dd3ff">
+        <polygon points="260,-40 340,-40 200,420 150,420"/>
+        <polygon points="430,-40 470,-40 360,360 320,360"/>
+        <polygon points="600,-40 660,-40 540,400 480,400"/>
+    </g>
+
+    <!-- big dolphin -->
+    <g transform="translate(688 78) scale(1.5)" opacity="0.92">
+        <path fill="url(#dol)" d="M288 70
+            C 280 78 270 80 262 82
+            C 238 96 210 104 186 108
+            C 178 108 170 120 156 136
+            C 168 124 176 116 186 112
+            C 150 120 110 120 70 110
+            C 56 116 40 128 28 132
+            C 40 124 48 116 52 108
+            C 44 104 40 96 30 86
+            C 44 92 58 96 70 96
+            C 110 92 140 80 160 64
+            C 150 52 146 40 150 28
+            C 158 40 168 50 178 56
+            C 210 46 240 52 262 58
+            C 274 60 284 64 288 70 Z"/>
+    </g>
+
+    <text x="90" y="250" font-family="Outfit, Arial, sans-serif" font-size="34" letter-spacing="6" fill="#38e1e8">PORTFOLIO</text>
+    <text x="86" y="350" font-family="Outfit, Arial, sans-serif" font-weight="800" font-size="90" fill="url(#txt)">Alexandra Blair</text>
+    <text x="86" y="440" font-family="Outfit, Arial, sans-serif" font-weight="800" font-size="90" fill="url(#txt)">Antablin</text>
+    <text x="90" y="510" font-family="Inter, Arial, sans-serif" font-size="32" fill="#b9c0e6">Biochemist · Lab Scientist · Ocean Enthusiast</text>
+</svg>

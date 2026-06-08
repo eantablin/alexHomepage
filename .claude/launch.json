@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "node_modules/.bin/sirv",
+      "runtimeArgs": [".", "--port", "4321", "--dev"],
+      "port": 4321
+    }
+  ]
+}

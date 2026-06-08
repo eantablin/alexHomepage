@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Dolphin">
+    <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#1d1457"/>
+            <stop offset="100%" stop-color="#0a0e27"/>
+        </linearGradient>
+        <linearGradient id="d" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#5eead4"/>
+            <stop offset="50%" stop-color="#38e1e8"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+        </linearGradient>
+    </defs>
+    <rect width="64" height="64" rx="15" fill="url(#bg)"/>
+    <g transform="translate(3 17) scale(0.18)">
+        <path fill="url(#d)" d="M288 70
+            C 280 78 270 80 262 82
+            C 238 96 210 104 186 108
+            C 178 108 170 120 156 136
+            C 168 124 176 116 186 112
+            C 150 120 110 120 70 110
+            C 56 116 40 128 28 132
+            C 40 124 48 116 52 108
+            C 44 104 40 96 30 86
+            C 44 92 58 96 70 96
+            C 110 92 140 80 160 64
+            C 150 52 146 40 150 28
+            C 158 40 168 50 178 56
+            C 210 46 240 52 262 58
+            C 274 60 284 64 288 70 Z"/>
+    </g>
+</svg>

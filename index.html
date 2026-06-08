@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0a0e27" />
+
+    <title>Alexandra Blair Antablin — Biochemist & Marine Enthusiast</title>
+    <meta name="description" content="Portfolio of Alexandra Blair Antablin — biochemist and laboratory scientist with a love of marine biology, dolphins, and a growing passion for code." />
+    <meta name="author" content="Alexandra Blair Antablin" />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alexandra Blair Antablin — Biochemist & Marine Enthusiast" />
+    <meta property="og:description" content="Biochemist and laboratory scientist with a love of marine biology, dolphins, and a growing passion for code." />
+    <meta property="og:url" content="https://alex.antablin.com" />
+    <meta property="og:image" content="https://alex.antablin.com/assets/img/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alexandra Blair Antablin — Biochemist & Marine Enthusiast" />
+    <meta name="twitter:description" content="Biochemist and laboratory scientist with a love of marine biology, dolphins, and a growing passion for code." />
+    <meta name="twitter:image" content="https://alex.antablin.com/assets/img/og-image.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <link rel="canonical" href="https://alex.antablin.com" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Fail-safe: if JS is disabled, reveal-on-scroll content stays visible -->
+    <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Animated ocean backdrop -->
+    <div class="ocean-bg" aria-hidden="true">
+        <div class="godrays"></div>
+        <canvas id="bubbles"></canvas>
+        <div class="vignette"></div>
+    </div>
+
+    <!-- Diving depth gauge -->
+    <aside class="depth-gauge" aria-hidden="true">
+        <div class="depth-gauge__track">
+            <span class="depth-gauge__fill"></span>
+            <span class="depth-gauge__marker">🐬</span>
+        </div>
+        <span class="depth-gauge__value">0m</span>
+    </aside>
+
+    <!-- Navigation -->
+    <header class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#home" class="nav__brand" aria-label="Alexandra Blair Antablin — home">
+                <span class="nav__brand-mark" aria-hidden="true">🐬</span>
+                <span class="nav__brand-text">Alexandra<span class="nav__brand-accent"> Antablin</span></span>
+            </a>
+
+            <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav__menu" id="navMenu" aria-label="Primary">
+                <a href="#about" class="nav__link">About</a>
+                <a href="#projects" class="nav__link">Projects</a>
+                <a href="#resume" class="nav__link">Résumé</a>
+                <a href="#recommend" class="nav__link">Recommends</a>
+                <a href="https://www.linkedin.com/in/aallard1/" class="nav__cta" target="_blank" rel="noopener noreferrer">Let's connect</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ===================== HERO ===================== -->
+        <section class="hero" id="home">
+            <div class="hero__content reveal">
+                <p class="hero__eyebrow">Hi there, I'm</p>
+                <h1 class="hero__name">Alexandra Blair Antablin</h1>
+                <p class="hero__roles">
+                    <span class="hero__role-rotator" id="roleRotator" aria-live="polite">Biochemist</span>
+                </p>
+                <p class="hero__tagline">
+                    I'm a biochemist and lab scientist who loves the bench, the ocean, and — more
+                    and more — solving problems with code. Welcome to my little corner of the sea,
+                    dolphins very much included.
+                </p>
+                <div class="hero__actions">
+                    <a href="#projects" class="btn btn--primary">Dive into my work</a>
+                    <a href="https://github.com/stackwonderflow" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">View GitHub ↗</a>
+                </div>
+            </div>
+
+            <!-- Swimming dolphin -->
+            <div class="hero__dolphin" aria-hidden="true">
+                <svg class="dolphin" viewBox="0 0 300 200" role="img" aria-label="A leaping dolphin">
+                    <use href="#dolphin-shape" />
+                </svg>
+            </div>
+
+            <a href="#about" class="scroll-cue" aria-label="Scroll to about section">
+                <span class="scroll-cue__text">Scroll to explore</span>
+                <span class="scroll-cue__arrow" aria-hidden="true"></span>
+            </a>
+        </section>
+
+        <div class="wave-divider" aria-hidden="true">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,64 C240,120 480,0 720,32 C960,64 1200,128 1440,64 L1440,120 L0,120 Z"/></svg>
+        </div>
+
+        <!-- ===================== ABOUT ===================== -->
+        <section class="section about" id="about">
+            <div class="container">
+                <header class="section__head reveal">
+                    <span class="section__kicker">01 — About</span>
+                    <h2 class="section__title">A biochemist with a soft spot for code</h2>
+                </header>
+
+                <div class="about__grid">
+                    <div class="about__lead reveal">
+                        <p>
+                            First and foremost, I'm a <strong>biochemist and laboratory
+                            scientist</strong>. I've spent years purifying proteins, culturing
+                            cells, and chasing clean data — the lab is home, and the analytical,
+                            detail-obsessed mindset that comes with it is how I approach everything.
+                        </p>
+                        <p>
+                            More recently I've fallen for the problem-solving rush of
+                            <strong>writing code</strong> — very much as an enthusiast still,
+                            learning as I go. And when I'm away from the bench or the keyboard,
+                            you'll find me near the water. Marine biology is my forever
+                            fascination, and yes, I will happily talk about <strong>dolphins</strong>
+                            for far longer than is socially acceptable.
+                        </p>
+                        <blockquote class="about__quote">
+                            "The good thing about science is that it's true whether or not you
+                            believe in it — and the ocean keeps most of it hidden."
+                        </blockquote>
+                    </div>
+
+                    <ul class="interests reveal" aria-label="Things I love">
+                        <li class="interest interest--feature">
+                            <span class="interest__icon" aria-hidden="true">🐬</span>
+                            <span class="interest__label">Marine biology &amp; dolphins</span>
+                        </li>
+                        <li class="interest"><span class="interest__icon" aria-hidden="true">🥾</span><span class="interest__label">Hiking &amp; nature</span></li>
+                        <li class="interest"><span class="interest__icon" aria-hidden="true">🌊</span><span class="interest__label">Swimming</span></li>
+                        <li class="interest"><span class="interest__icon" aria-hidden="true">📚</span><span class="interest__label">Reading widely</span></li>
+                        <li class="interest"><span class="interest__icon" aria-hidden="true">🎮</span><span class="interest__label">Games &amp; interactive stories</span></li>
+                        <li class="interest"><span class="interest__icon" aria-hidden="true">🧩</span><span class="interest__label">Puzzles &amp; brain teasers</span></li>
+                        <li class="interest"><span class="interest__icon" aria-hidden="true">🌱</span><span class="interest__label">Always learning</span></li>
+                        <li class="interest"><span class="interest__icon" aria-hidden="true">💻</span><span class="interest__label">Coding</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PROJECTS ===================== -->
+        <section class="section projects" id="projects">
+            <div class="container">
+                <header class="section__head reveal">
+                    <span class="section__kicker">02 — Projects</span>
+                    <h2 class="section__title">Things I've built</h2>
+                    <p class="section__sub">A few of the projects I've shipped, tinkered with, and learned from.</p>
+                </header>
+
+                <div class="projects__grid">
+                    <article class="card project reveal" tabindex="0">
+                        <div class="project__top">
+                            <span class="project__tag">In progress</span>
+                            <span class="project__num" aria-hidden="true">/01</span>
+                        </div>
+                        <h3 class="project__title">OSRS Shooting Star Tracker</h3>
+                        <p class="project__desc">
+                            A collaborative scraper for Old School RuneScape that tracks shooting
+                            star locations, with a planned RuneLite plugin integration.
+                        </p>
+                        <div class="project__links">
+                            <a href="https://github.com/stackwonderflow/osrs_shooting_star_tracker" target="_blank" rel="noopener noreferrer" class="project__link">View on GitHub ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="card project reveal" tabindex="0">
+                        <div class="project__top">
+                            <span class="project__tag">Web app</span>
+                            <span class="project__num" aria-hidden="true">/02</span>
+                        </div>
+                        <h3 class="project__title">Underground v2</h3>
+                        <p class="project__desc">
+                            A reimagined version of my original console game, rebuilt as a Flask
+                            web app. It marks how far I've come as a developer — bug fixes,
+                            new features, and all.
+                        </p>
+                        <div class="project__links">
+                            <a href="https://github.com/stackwonderflow/Undergroundv2" target="_blank" rel="noopener noreferrer" class="project__link">View on GitHub ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="card project reveal" tabindex="0">
+                        <div class="project__top">
+                            <span class="project__tag">Collaboration</span>
+                            <span class="project__num" aria-hidden="true">/03</span>
+                        </div>
+                        <h3 class="project__title">ConsoleArcade</h3>
+                        <p class="project__desc">
+                            A collection of console games written in Python — including hangman and
+                            tic-tac-toe — dressed up with ASCII visuals. Built with a team.
+                        </p>
+                        <div class="project__links">
+                            <a href="https://github.com/eantablin/ConsoleArcade" target="_blank" rel="noopener noreferrer" class="project__link">View on GitHub ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="card project reveal" tabindex="0">
+                        <div class="project__top">
+                            <span class="project__tag">Where it began</span>
+                            <span class="project__num" aria-hidden="true">/04</span>
+                        </div>
+                        <h3 class="project__title">Underground</h3>
+                        <p class="project__desc">
+                            My first major project — the final for Code in Place 2021. A console
+                            adventure game where players battle progressively tougher enemies.
+                        </p>
+                        <div class="project__links">
+                            <a href="https://codeinplace-2021.netlify.app/2021/showcase/1340" target="_blank" rel="noopener noreferrer" class="project__link">Showcase ↗</a>
+                            <a href="https://github.com/stackwonderflow/Underground" target="_blank" rel="noopener noreferrer" class="project__link">GitHub ↗</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== RESUME ===================== -->
+        <section class="section resume" id="resume">
+            <div class="container">
+                <header class="section__head reveal">
+                    <span class="section__kicker">03 — Résumé</span>
+                    <h2 class="section__title">Experience &amp; education</h2>
+                    <p class="section__sub">
+                        Biochemist and laboratory scientist with hands-on research and industry
+                        experience — bringing scientific rigor to the bench, and lately to code as
+                        an enthusiast.
+                    </p>
+                </header>
+
+                <div class="resume__layout">
+                    <!-- Timeline -->
+                    <div class="resume__main">
+                        <h3 class="resume__group-title reveal">Work &amp; research</h3>
+                        <ol class="timeline">
+                            <li class="timeline__item reveal">
+                                <div class="timeline__dot" aria-hidden="true"></div>
+                                <div class="timeline__body card">
+                                    <span class="timeline__date">Jan 2024 — Present</span>
+                                    <h4 class="timeline__role">Junior Software Engineer</h4>
+                                    <p class="timeline__org">Private Client</p>
+                                    <ul class="timeline__points">
+                                        <li>Develop software and websites using C, Python, SQLite3, HTML, CSS, Flask, and Svelte.</li>
+                                        <li>Maintain and manage an internal data lake using PostgreSQL and Python.</li>
+                                        <li>Continuously expand knowledge of new languages and technologies.</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="timeline__item reveal">
+                                <div class="timeline__dot" aria-hidden="true"></div>
+                                <div class="timeline__body card">
+                                    <span class="timeline__date">Jun 2023 — Jan 2024</span>
+                                    <h4 class="timeline__role">Microbiology Technician</h4>
+                                    <p class="timeline__org">Food Safety Net Services · Bentonville, AR</p>
+                                    <ul class="timeline__points">
+                                        <li>Prepared samples to test for indicator organisms and pathogens using aseptic technique.</li>
+                                        <li>Ran quality-control monitoring: incubator temperatures, control organism inoculation, and media controls.</li>
+                                        <li>Maintained lab conditions, equipment, and accurate records throughout all procedures.</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="timeline__item reveal">
+                                <div class="timeline__dot" aria-hidden="true"></div>
+                                <div class="timeline__body card">
+                                    <span class="timeline__date">Jan 2022 — Sep 2022</span>
+                                    <h4 class="timeline__role">Assistant Scientist · Protein Science Team</h4>
+                                    <p class="timeline__org">Amberstone Biosciences · Irvine, CA</p>
+                                    <ul class="timeline__points">
+                                        <li>Produced super-coiled plasmid DNA via plasmid purification of E. coli for use in transfections.</li>
+                                        <li>Maintained, passaged, transfected, and harvested Expi293F cultures to obtain conditioned media.</li>
+                                        <li>Produced 99% pure proteins through batch purification and FPLC IMAC Nickel-NTA.</li>
+                                        <li>Tested and validated newer one-step purification techniques (M1, Heparin Sepharose).</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="timeline__item reveal">
+                                <div class="timeline__dot" aria-hidden="true"></div>
+                                <div class="timeline__body card">
+                                    <span class="timeline__date">Aug 2017 — Dec 2018</span>
+                                    <h4 class="timeline__role">Research Assistant · Dr. Norito Takenaka's Lab</h4>
+                                    <p class="timeline__org">Florida Institute of Technology · Melbourne, FL</p>
+                                    <ul class="timeline__points">
+                                        <li>Synthesized a Lewis base catalyst via column chromatography for production of value-added products.</li>
+                                        <li>Developed artificial enzymes for catalytic reactions, demonstrating utility in producing pharmaceutical compounds.</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="resume__side">
+                        <div class="card resume__block reveal">
+                            <h3 class="resume__block-title">Education</h3>
+                            <div class="edu">
+                                <h4>B.S. Biochemistry <span>(Chemistry focus)</span></h4>
+                                <p>Florida Institute of Technology · 2017–2018</p>
+                            </div>
+                            <div class="edu">
+                                <h4>A.A.</h4>
+                                <p>Eastern Florida State College · 2016</p>
+                            </div>
+                            <div class="edu">
+                                <h4>CS50 (2024)</h4>
+                                <p>Harvard University — Intro to Computer Science</p>
+                            </div>
+                            <div class="edu">
+                                <h4>Code in Place (2021)</h4>
+                                <p>Stanford University — Intro to Python</p>
+                            </div>
+                        </div>
+
+                        <div class="card resume__block reveal">
+                            <h3 class="resume__block-title">Skills</h3>
+                            <div class="skills">
+                                <h4 class="skills__cat">Lab &amp; Equipment</h4>
+                                <ul class="chips">
+                                    <li class="chip chip--strong">FPLC</li>
+                                    <li class="chip chip--strong">HPLC</li>
+                                    <li class="chip">ÄKTA Explorer</li>
+                                    <li class="chip">Gator Label-Free</li>
+                                    <li class="chip">Expi293F cells</li>
+                                    <li class="chip">SDS-PAGE</li>
+                                </ul>
+                                <h4 class="skills__cat">Lab Techniques</h4>
+                                <ul class="chips">
+                                    <li class="chip chip--strong">Protein purification</li>
+                                    <li class="chip">Suspension cell culture</li>
+                                    <li class="chip">Bacterial transfection</li>
+                                    <li class="chip">Aseptic technique</li>
+                                    <li class="chip">Spread &amp; petrifilm plating</li>
+                                    <li class="chip">Clean room protocols</li>
+                                </ul>
+                                <h4 class="skills__cat">Programming &amp; Web <span style="color:var(--ink-mute);font-weight:400;text-transform:none;letter-spacing:0">· enthusiast</span></h4>
+                                <ul class="chips">
+                                    <li class="chip">Python</li>
+                                    <li class="chip">C</li>
+                                    <li class="chip">SQL</li>
+                                    <li class="chip">HTML/CSS</li>
+                                    <li class="chip">R</li>
+                                    <li class="chip">Flask</li>
+                                    <li class="chip">Svelte</li>
+                                </ul>
+                                <h4 class="skills__cat">Tools &amp; Databases</h4>
+                                <ul class="chips">
+                                    <li class="chip">Git/GitHub</li>
+                                    <li class="chip">VS Code</li>
+                                    <li class="chip">PostgreSQL</li>
+                                    <li class="chip">SQLite3</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card resume__block reveal">
+                            <h3 class="resume__block-title">Awards &amp; more</h3>
+                            <ul class="resume__misc">
+                                <li><strong>Outstanding Two-Year College Student</strong> — ACS Orlando Section, 2015</li>
+                                <li><strong>Poster</strong> — Takenaka Lab, presented a green catalyst alternative at the Northrop Grumman Engineering &amp; Science Showcase, 2018</li>
+                                <li><strong>Member</strong> — American Chemical Society &amp; ACS Student Affiliates (FIT), 2017–2019</li>
+                                <li><strong>Outreach</strong> — Ran ACS community events: pH-changing butterfly pea tea, slime polymers, and supersaturated-solution snow globes</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== RECOMMENDATIONS ===================== -->
+        <section class="section recommend" id="recommend">
+            <div class="container">
+                <header class="section__head reveal">
+                    <span class="section__kicker">04 — Recommends</span>
+                    <h2 class="section__title">Things I actually love</h2>
+                    <p class="section__sub">Not sponsored — just products and media I personally use and enjoy.</p>
+                </header>
+
+                <div class="recommend__group reveal">
+                    <h3 class="recommend__label">Products</h3>
+                    <div class="recommend__grid" id="products"></div>
+                </div>
+
+                <div class="recommend__group reveal">
+                    <h3 class="recommend__label">Media &amp; podcasts</h3>
+                    <div class="recommend__grid" id="media"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" id="contact">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <span class="footer__mark" aria-hidden="true">🐬</span>
+                <p class="footer__name">Alexandra Blair Antablin</p>
+                <p class="footer__line">Biochemist · programming enthusiast · ocean lover</p>
+            </div>
+            <nav class="footer__links" aria-label="Social links">
+                <a href="https://www.linkedin.com/in/aallard1/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                <a href="https://github.com/stackwonderflow" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </nav>
+        </div>
+        <p class="footer__credit">Made with 💜 &amp; 💙 somewhere near the sea · © <span id="year"></span></p>
+    </footer>
+
+    <!-- Reusable SVG defs -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <linearGradient id="dolphin-grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#5eead4" />
+                <stop offset="45%" stop-color="#38e1e8" />
+                <stop offset="100%" stop-color="#a855f7" />
+            </linearGradient>
+            <!-- Stylized dolphin silhouette (facing right), viewBox 0 0 300 200 -->
+            <path id="dolphin-shape" d="M288 70
+                C 280 78 270 80 262 82
+                C 238 96 210 104 186 108
+                C 178 108 170 120 156 136
+                C 168 124 176 116 186 112
+                C 150 120 110 120 70 110
+                C 56 116 40 128 28 132
+                C 40 124 48 116 52 108
+                C 44 104 40 96 30 86
+                C 44 92 58 96 70 96
+                C 110 92 140 80 160 64
+                C 150 52 146 40 150 28
+                C 158 40 168 50 178 56
+                C 210 46 240 52 262 58
+                C 274 60 284 64 288 70 Z" />
+        </defs>
+    </svg>
+
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>
